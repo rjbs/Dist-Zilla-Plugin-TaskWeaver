@@ -2,22 +2,26 @@ package Pod::Weaver::Plugin::TaskWeaver;
 use Moose;
 with 'Pod::Weaver::Role::Dialect';
 with 'Pod::Weaver::Role::Section';
+# ABSTRACT: Dist::Zilla::Plugin::TaskWeaver's helper
+
+=head1 DESCRIPTION
+
+B<Achtung!>  This class should not need to exist; it should be possible for
+Dist::Zilla::Plugin::TaskWeaver to also be a Pod::Weaver plugin, but a subtle
+bug in Moose prevents this from happening right now.  In the future, this class
+may go away.
+
+This is a Pod::Weaver plugin.  It functions as both a Dialect and a Section,
+although this is basically hackery to get things into the right order.  For
+more information consult the L<Dist::Zilla::Plugin::TaskWeaver> documentation.
+
+=cut
 
 use Moose::Autobox;
 use Pod::Elemental::Selectors -all;
 use Pod::Elemental::Transformer::Nester;
 
-# DIALECT: find all =pkgroup and collect =pkg and flat under them
-#          convert =pkgroup to head1, =pkg to head2
-#         
-# SECTION: register packages with prereq (no $zilla until now)
-#          include all prereqs
-
-has zillaplugin => (
-  is  => 'ro',
-  isa => 'Dist::Zilla::Plugin::TaskWeaver',
-  required => 1,
-);
+has zillaplugin => (is => 'ro', isa => 'Object', required => 1);
 
 sub record_prereq {
   my ($self, $pkg, $ver) = @_;
@@ -71,7 +75,7 @@ sub weave_section {
            and    $child->command eq 'pkg';
 
       $child->command('head3');
-      
+
       my ($pkg, $ver, $reason) = split /\s+/sm, $child->content, 3;
       $self->record_prereq($pkg, $ver);
 
@@ -98,5 +102,4 @@ sub weave_section {
   return;
 }
 
-no Moose;
 1;
