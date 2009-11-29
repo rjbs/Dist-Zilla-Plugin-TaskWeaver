@@ -27,15 +27,25 @@ sub record_prereq {
 sub translate_dialect {
   my ($self, $document) = @_;
 
-  my $nester = Pod::Elemental::Transformer::Nester->new({
-    top_selector => s_command([ qw(pkgroup) ]),
+  my $pkg_nester = Pod::Elemental::Transformer::Nester->new({
+    top_selector => s_command([ qw(pkg) ]),
     content_selectors => [
       s_flat,
-      s_command( [ qw(pkg over item back) ]),
+      s_command( [ qw(over item back) ]),
     ],
   });
 
-  $nester->transform_node($document);
+  $pkg_nester->transform_node($document);
+
+  my $pkgroup_nester = Pod::Elemental::Transformer::Nester->new({
+    top_selector => s_command([ qw(pkgroup) ]),
+    content_selectors => [
+      s_flat,
+      s_command( [ qw(pkg) ]),
+    ],
+  });
+
+  $pkgroup_nester->transform_node($document);
 
   return;
 }
@@ -62,8 +72,18 @@ sub weave_section {
 
       $child->command('head3');
       
-      my ($pkg, $ver) = split /\s+/, $child->content;
+      my ($pkg, $ver, $reason) = split /\s+/sm, $child->content, 3;
       $self->record_prereq($pkg, $ver);
+
+      $child->content(defined $ver ? "$pkg $ver" : $pkg);
+
+      if (defined $ver and defined $reason) {
+        $child->children->unshift(
+          Pod::Elemental::Element::Pod5::Ordinary->new({
+            content => "Version $ver required because: $reason",
+          })
+        );
+      }
     }
   }
 
