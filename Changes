@@ -1,4 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          auto-create a test so that CPAN, etc, will not refuse install
+
+0.093330  2009-11-29 11:45:00 America/New_York
           first release
