@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          fix a few prereqs
 
 0.093370  2009-12-03 20:40:10 America/New_York
           auto-create a test so that CPAN, etc, will not refuse install
