@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.093420  2009-12-08 21:29:09 America/New_York
           fix a few more prereqs
 
 0.093390  2009-12-05 08:45:24 America/New_York
