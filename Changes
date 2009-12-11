@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          fix a few more prereqs.  should be using AutoPrereq :-/
 
 0.093420  2009-12-08 21:29:09 America/New_York
           fix a few more prereqs
