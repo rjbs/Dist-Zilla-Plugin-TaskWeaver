@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          updated to work with Dist::Zilla v2
 
 0.093450  2009-12-11 15:55:53 America/New_York
           fix a few more prereqs.  should be using AutoPrereq :-/

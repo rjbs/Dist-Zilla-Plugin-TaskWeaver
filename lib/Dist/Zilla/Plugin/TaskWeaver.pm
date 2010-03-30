@@ -76,6 +76,12 @@ has prereq => (
   default  => sub { {} },
 );
 
+sub register_prereqs {
+  my ($self) = @_;
+
+  $self->zilla->register_prereqs(%{ $self->prereq });
+}
+
 sub gather_files {
   my ($self) = @_;
   
@@ -91,7 +97,6 @@ END_TEST
   );
 }
 
-with 'Dist::Zilla::Role::FixedPrereqs';
+with 'Dist::Zilla::Role::PrereqSource';
 
 1;
-
