@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.100890  2010-03-30 16:10:23 America/New_York
           updated to work with Dist::Zilla v2
 
 0.093450  2009-12-11 15:55:53 America/New_York
