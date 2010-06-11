@@ -79,7 +79,7 @@ sub weave_section {
       my ($pkg, $ver, $reason) = split /\s+/sm, $child->content, 3;
       $self->record_prereq($pkg, $ver);
 
-      $child->content(defined $ver ? "$pkg $ver" : $pkg);
+      $child->content(defined $ver ? "L<$pkg> $ver" : "L<$pkg>");
 
       if (defined $ver and defined $reason) {
         $child->children->unshift(
