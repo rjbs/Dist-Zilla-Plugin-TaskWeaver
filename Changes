@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.101620  2010-06-11 18:53:23 America/New_York
           L<>-ify package names, RT #56818
 
 0.100890  2010-03-30 16:10:23 America/New_York
