@@ -33,7 +33,7 @@ specific directives, and are in the following format:
   =pkg Package::Name  min_version  reason
 
 Both C<min_version> and C<reason> are optional, although you can't give a
-reason without giving a reason.  If a reason is given, it will be included in
+reason without giving a version.  If a reason is given, it will be included in
 the Pod to explain why the specific version is required.
 
 =head1 WARNING
