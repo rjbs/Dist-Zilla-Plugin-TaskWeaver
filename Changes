@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          minor doc fixe; thanks, Glenn Fowler
 
 0.101620  2010-06-11 18:53:23 America/New_York
           L<>-ify package names, RT #56818
