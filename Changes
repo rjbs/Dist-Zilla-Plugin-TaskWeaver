@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          treat "no version" as 0 and not undef
 
 0.101621  2011-02-05 14:26:07 America/New_York
           minor doc fixe; thanks, Glenn Fowler

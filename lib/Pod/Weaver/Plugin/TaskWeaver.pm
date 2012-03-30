@@ -25,7 +25,7 @@ has zillaplugin => (is => 'ro', isa => 'Object', required => 1);
 
 sub record_prereq {
   my ($self, $pkg, $ver) = @_;
-  $self->zillaplugin->prereq->{$pkg} = $ver;
+  $self->zillaplugin->prereq->{$pkg} = defined $ver ? $ver : 0;
 }
 
 sub translate_dialect {
