@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.101624  2012-04-25 11:06:39 America/New_York
           accept =pkggroup where =pkgroup was expected... but work
 
 0.101623  2012-04-25 09:59:34 America/New_York
