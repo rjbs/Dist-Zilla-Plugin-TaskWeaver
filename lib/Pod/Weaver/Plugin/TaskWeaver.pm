@@ -64,7 +64,7 @@ sub weave_section {
     my $child = $input_pod->children->[ $i ];
     unshift @pkgroups, splice(@{$input_pod->children}, $i, 1)
       if  $child->does('Pod::Elemental::Command')
-      and $child->command eq 'pkgroup';
+      and ($child->command eq 'pkgroup' or $child->command eq 'pkggroup');
   }
 
   for my $pkgroup (@pkgroups) {
