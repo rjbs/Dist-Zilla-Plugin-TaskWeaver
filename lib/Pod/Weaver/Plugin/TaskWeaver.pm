@@ -42,7 +42,7 @@ sub translate_dialect {
   $pkg_nester->transform_node($document);
 
   my $pkgroup_nester = Pod::Elemental::Transformer::Nester->new({
-    top_selector => s_command([ qw(pkgroup) ]),
+    top_selector => s_command([ qw(pkgroup pkggroup) ]),
     content_selectors => [
       s_flat,
       s_command( [ qw(pkg) ]),

@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          accept =pkggroup where =pkgroup was expected
 
 0.101622  2012-03-30 12:58:32 Europe/Paris
           treat "no version" as 0 and not undef
