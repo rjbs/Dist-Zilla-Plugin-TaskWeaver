@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.101626  2013-07-25 16:05:35 America/Los_Angeles
+          fix git repo metadata
+
 0.101625  2013-07-25 16:02:36 America/Los_Angeles
           update preferred bugtracker
 
