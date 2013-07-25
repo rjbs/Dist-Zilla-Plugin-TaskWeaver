@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          update preferred bugtracker
 
 0.101624  2012-04-25 11:06:39 America/New_York
           accept =pkggroup where =pkgroup was expected... but work
