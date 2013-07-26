@@ -42,6 +42,16 @@ TaskWeaver works, but relies on doing some pretty evil stuff.  It may
 substantially change its method of operation in the future, but its
 expectations from your Pod should not change.
 
+=head1 ...AND ANOTHER THINGS
+
+If you use three part versions, like C<1.2.3>, you will want to require a very
+modern ExtUtils::MakeMaker, probably v6.68 or later.  You can do that with:
+
+  [Prereqs / EUMM]
+  -phase = configure
+  -type  = requires
+  ExtUtils::MakeMaker = 6.68
+
 =cut
 
 use Moose::Autobox;
