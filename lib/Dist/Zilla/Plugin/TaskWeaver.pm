@@ -115,7 +115,7 @@ sub gather_files {
     Dist::Zilla::File::InMemory->new({
       name    => 't/placeholder.t',
       content => <<'END_TEST',
-use strict;
+use strict; use warnings;
 use Test::More tests => 1;
 ok(1, 'tasks need no tests, but CPAN clients demand them');
 END_TEST
