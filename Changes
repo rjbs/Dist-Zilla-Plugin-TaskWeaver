@@ -1,8 +1,11 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.101627  2014-11-09 21:49:19-05:00 America/New_York
         - make the generation of the placeholder test file optional
         - also, rename it from bogus-test to placeholder-test
+        - no longer using MooseX::Autobox
 
 0.101626  2013-07-25 16:05:35 America/Los_Angeles
           fix git repo metadata
