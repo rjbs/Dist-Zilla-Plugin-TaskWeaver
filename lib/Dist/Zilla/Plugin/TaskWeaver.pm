@@ -52,15 +52,16 @@ modern ExtUtils::MakeMaker, probably v6.68 or later.  You can do that with:
   -type  = requires
   ExtUtils::MakeMaker = 6.68
 
-=head2 Bogus Testfile
+=head2 Placeholder Testfile
 
 Due to the way various CPAN clients install modules, it is necessary
 to generate a fake testfile so there is at least a test in the distribution.
 
-If you do not want to generate the file, disable the C<bogus_test> attribute.
+If you do not want to generate the file, disable the C<placeholder_test>
+attribute.
 
   [TaskWeaver]
-  bogus_test = 0
+  placeholder_test = 0
 
 =cut
 
@@ -71,7 +72,7 @@ use Pod::Weaver::Plugin::TaskWeaver;
 # find the first plugin where the coderef tests true; useful for "generic and
 # selector name is synopsis" or something -- rjbs, 2009-11-28
 
-has 'bogus_test' => (
+has placeholder_test => (
   is => 'ro',
   isa => 'Bool',
   default => 1,
@@ -115,12 +116,13 @@ sub gather_files {
     Dist::Zilla::File::InMemory->new({
       name    => 't/placeholder.t',
       content => <<'END_TEST',
-use strict; use warnings;
+use strict;
+use warnings;
 use Test::More tests => 1;
 ok(1, 'tasks need no tests, but CPAN clients demand them');
 END_TEST
     }),
-  ) if $self->bogus_test;
+  ) if $self->placeholder_test;
 }
 
 with 'Dist::Zilla::Role::PrereqSource';
