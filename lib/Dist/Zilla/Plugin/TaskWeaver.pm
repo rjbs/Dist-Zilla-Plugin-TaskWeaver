@@ -94,10 +94,10 @@ sub register_prereqs {
 
 sub gather_files {
   my ($self) = @_;
-  
+
   $self->add_file(
     Dist::Zilla::File::InMemory->new({
-      name    => 't/task-bogus.t',
+      name    => 't/placeholder.t',
       content => <<'END_TEST',
 use strict;
 use Test::More tests => 1;
