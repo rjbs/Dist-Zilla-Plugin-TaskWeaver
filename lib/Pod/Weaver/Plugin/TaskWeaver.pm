@@ -5,6 +5,8 @@ use Moose;
 with 'Pod::Weaver::Role::Dialect';
 with 'Pod::Weaver::Role::Section';
 
+use namespace::autoclean;
+
 =head1 DESCRIPTION
 
 B<Achtung!>  This class should not need to exist; it should be possible for

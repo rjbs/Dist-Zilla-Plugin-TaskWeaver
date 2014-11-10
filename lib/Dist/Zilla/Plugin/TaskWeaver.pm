@@ -5,6 +5,8 @@ use Moose;
 extends qw(Dist::Zilla::Plugin::PodWeaver);
 with 'Dist::Zilla::Role::FileGatherer';
 
+use namespace::autoclean;
+
 =head1 DESCRIPTION
 
 The TaskWeaver plugin acts just like the PodWeaver plugin, but gets its claws
