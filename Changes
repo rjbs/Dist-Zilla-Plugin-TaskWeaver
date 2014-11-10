@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - make the generation of the placeholder test file optional
+        - also, rename it from bogus-test to placeholder-test
 
 0.101626  2013-07-25 16:05:35 America/Los_Angeles
           fix git repo metadata
