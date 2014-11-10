@@ -1,8 +1,9 @@
 package Pod::Weaver::Plugin::TaskWeaver;
+# ABSTRACT: Dist::Zilla::Plugin::TaskWeaver's helper
+
 use Moose;
 with 'Pod::Weaver::Role::Dialect';
 with 'Pod::Weaver::Role::Section';
-# ABSTRACT: Dist::Zilla::Plugin::TaskWeaver's helper
 
 =head1 DESCRIPTION
 

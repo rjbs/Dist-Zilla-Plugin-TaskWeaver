@@ -1,8 +1,9 @@
 package Dist::Zilla::Plugin::TaskWeaver;
+# ABSTRACT: a PodWeaver plugin used to build Task distributions
+
 use Moose;
 extends qw(Dist::Zilla::Plugin::PodWeaver);
 with 'Dist::Zilla::Role::FileGatherer';
-# ABSTRACT: a PodWeaver plugin used to build Task distributions
 
 =head1 DESCRIPTION
 
