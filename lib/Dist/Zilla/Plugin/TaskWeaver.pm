@@ -68,7 +68,6 @@ attribute.
 
 =cut
 
-use Moose::Autobox;
 use Pod::Weaver::Plugin::TaskWeaver;
 
 # need an attr for "plugin name to put this after" -- ugh! -- or a coderef to
@@ -88,7 +87,7 @@ around weaver => sub {
 
   my ($i) =
     grep { $weaver->plugins->[$_]->isa('Pod::Weaver::Section::Leftovers') }
-    ($weaver->plugins->keys->flatten);
+    (0 .. $#{ $weaver->plugins });
 
   splice @{ $weaver->plugins }, $i, 0, Pod::Weaver::Plugin::TaskWeaver->new({
     weaver      => $weaver,

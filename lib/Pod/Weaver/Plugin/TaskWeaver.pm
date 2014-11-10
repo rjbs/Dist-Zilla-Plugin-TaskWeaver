@@ -2,8 +2,7 @@ package Pod::Weaver::Plugin::TaskWeaver;
 # ABSTRACT: Dist::Zilla::Plugin::TaskWeaver's helper
 
 use Moose;
-with 'Pod::Weaver::Role::Dialect';
-with 'Pod::Weaver::Role::Section';
+with 'Pod::Weaver::Role::Dialect', 'Pod::Weaver::Role::Section';
 
 use namespace::autoclean;
 
@@ -20,7 +19,6 @@ more information consult the L<Dist::Zilla::Plugin::TaskWeaver> documentation.
 
 =cut
 
-use Moose::Autobox;
 use Pod::Elemental::Selectors -all;
 use Pod::Elemental::Transformer::Nester;
 
@@ -63,7 +61,7 @@ sub weave_section {
   my $input_pod = $input->{pod_document};
 
   my @pkgroups;
-  for my $i (reverse $input_pod->children->keys->flatten) {
+  for my $i (reverse(0 .. $#{ $input_pod->children })) {
     my $child = $input_pod->children->[ $i ];
     unshift @pkgroups, splice(@{$input_pod->children}, $i, 1)
       if  $child->does('Pod::Elemental::Command')
@@ -85,7 +83,7 @@ sub weave_section {
       $child->content(defined $ver ? "L<$pkg> $ver" : "L<$pkg>");
 
       if (defined $ver and defined $reason) {
-        $child->children->unshift(
+        unshift @{ $child->children }, (
           Pod::Elemental::Element::Pod5::Ordinary->new({
             content => "Version $ver required because: $reason",
           })
@@ -100,7 +98,7 @@ sub weave_section {
     children => \@pkgroups,
   });
 
-  $input_pod->children->unshift($section);
+  unshift @{ $input_pod->children}, $section;
 
   return;
 }
