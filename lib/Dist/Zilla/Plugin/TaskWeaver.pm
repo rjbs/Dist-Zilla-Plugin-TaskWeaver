@@ -71,6 +71,20 @@ attribute.
 
 use Pod::Weaver::Plugin::TaskWeaver;
 
+# this is weird because it is *supposed* to work via extending PodWeaver!
+sub mvp_aliases { return { config_plugin => 'config_plugins' } }
+sub mvp_multivalue_args { qw(config_plugins) }
+
+has config_plugins => (
+  isa => 'ArrayRef[Str]',
+  traits  => [ 'Array' ],
+  default => sub {  []  },
+  handles => {
+    config_plugins     => 'elements',
+    has_config_plugins => 'count',
+  },
+);
+
 # need an attr for "plugin name to put this after" -- ugh! -- or a coderef to
 # find the first plugin where the coderef tests true; useful for "generic and
 # selector name is synopsis" or something -- rjbs, 2009-11-28
