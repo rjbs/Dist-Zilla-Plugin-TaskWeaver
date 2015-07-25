@@ -3,7 +3,8 @@ package Dist::Zilla::Plugin::TaskWeaver;
 
 use Moose;
 extends qw(Dist::Zilla::Plugin::PodWeaver);
-with 'Dist::Zilla::Role::FileGatherer';
+with 'Dist::Zilla::Role::FileGatherer' => { -excludes => 'mvp_aliases' },
+     'Dist::Zilla::Role::PrereqSource' => { -excludes => 'mvp_aliases' };
 
 use namespace::autoclean;
 
@@ -126,7 +127,5 @@ END_TEST
     }),
   ) if $self->placeholder_test;
 }
-
-with 'Dist::Zilla::Role::PrereqSource';
 
 1;
