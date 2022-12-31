@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - update packaging and metadata
+        - minimum required Perl is now v5.12
         - exclude more unwanted methods (thanks for Arne Johannessen for
           the report!)
 
