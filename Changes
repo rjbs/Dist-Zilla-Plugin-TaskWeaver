@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - exclude more unwanted methods (thanks for Arne Johannessen for
+          the report!)
 
 0.101628  2015-07-24 22:02:12-04:00 America/New_York
         - do not bring in the mvp_ methods from the Plugin role!

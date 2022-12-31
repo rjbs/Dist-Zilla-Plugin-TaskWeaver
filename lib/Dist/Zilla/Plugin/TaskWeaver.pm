@@ -3,8 +3,8 @@ package Dist::Zilla::Plugin::TaskWeaver;
 
 use Moose;
 extends qw(Dist::Zilla::Plugin::PodWeaver);
-with 'Dist::Zilla::Role::FileGatherer' => { -excludes => 'mvp_aliases' },
-     'Dist::Zilla::Role::PrereqSource' => { -excludes => 'mvp_aliases' };
+with 'Dist::Zilla::Role::FileGatherer' => { -excludes => [ qw(mvp_aliases mvp_multivalue_args) ] },
+     'Dist::Zilla::Role::PrereqSource' => { -excludes => [ qw(mvp_aliases mvp_multivalue_args) ] };
 
 use namespace::autoclean;
 
